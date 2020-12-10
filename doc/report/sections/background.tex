@@ -76,13 +76,13 @@ Q^{n+d} = \left[ q; q(\theta, z) = \prod_{i=1}^d q_{\theta_i}(\theta_i) \prod_{i
 \label{vbapprox}
 q^*(\theta, z) = \arg \min_{Q^{n+d}} \text{KL}(q(\theta, z) \| p(\theta, z |x))
 \end{equation}
-Note that under this mean field family, the variational distribution may be factorized as
+Note that the KL divergence is not symmetric, and it is a choice of convenience to order the distributions like so. If the terms were flipped, the KL divergence would require to compute an expectation over the intractable posterior. Under this mean field family, notice that the variational distribution may be factorized as
 \begin{equation}
 \label{fact}
 q(\theta,z) = q_{\theta}(\theta)q_{z}(z)
 \end{equation}
 %
-where each component does not depend on the other parameter. Often, the local latents are considered to be nuisance parameters, and we call the optimal $q^*_{\theta}$ the VB posterior. The target is then the marginal posterior $p(\theta|x) = \int dz p(\theta, z |x)$. Denote $Q^d$ and $Q^n$ to be the variational families in which $q_{\theta}$ and $q_z$ are defined, respectively. Note an immediate limitation in the expressiveness of the mean-field family. The factorizable densities implies that the marginal distributions are independent. This is not the case for many distributions of interest, and hence the mean-field approximation can be very poor if dependencies across parameters are strong. 
+where each component does not depend on the other parameter. Often, the local latents are considered to be nuisance parameters, and we call the optimal $q^*_{\theta}$ the VB posterior. The target is then the marginal posterior $p(\theta|x) = \int dz p(\theta, z |x)$. Denote $Q^d$ and $Q^n$ to be the variational families in which $q_{\theta}$ and $q_z$ are defined, respectively. There is an immediate limitation in the expressiveness of the mean-field family. The factorizable densities implies that the marginal distributions are independent. This is not the case for many distributions of interest, and hence the mean-field approximation can be very poor if dependencies across parameters are strong. 
 
 \paragraph{} \textbf{The key topic of the report is whether a BvM-type phenomenon exists for the global variables $\theta$ on the variational approximation $q^*$ to the posterior. The literature of BvM adaptations is rich, including under model misspecification (\cite{kleijn2012}), so it is not unreasonable to suggest that some element of BvM also survives the VB approximation. Indeed, \cite{Wang:2019:VBVM} answer this in the positive. An exposition of this work, and in particular Theorem 5 represents the body of this report.} 
 
@@ -97,7 +97,7 @@ in contrast to equation \ref{vbapprox}, this is a function of $\theta$ (viewed a
 \begin{equation}
 \hat{\theta_n} = \arg \max_{\theta} M_n(\theta; x)
 \end{equation}
-Now, suppose a Bayesian model is fit to a random sample $x$, with prior density $p(\theta)$ and posterior density $p(\theta, z |x)$. Define the VB ideal density to be
+Now, suppose a Bayesian model is fit to a random sample $x$, with prior density $p(\theta)$ and likelihood $p(x, z | \theta) = p(x|z, \theta)p(z|\theta)$. Define the VB ideal density to be
 \begin{equation}
 \label{vbideal}
 \pi^*(\theta|x) = \frac{p(\theta)\exp(M_n(\theta; x))}{\int p(\theta)\exp(M_n(\theta;x))d\theta}
@@ -109,7 +109,7 @@ Note that this is a highly complicated expression that is defined only for theor
 
 In most practical settings, KL optimization requires iterative procedures and hence the posterior density must be evaluated at each iteration. This is clearly not feasible in the cases where VI would be useful, so instead an alternative objective is defined. 
 \begin{definition}[Evidence Lower Bound (ELBO), \cite{VIReview}, section 2.2]
-	In the notation above, the ELBO between the posterior and the variational distribution is defined as
+	In the notation above, the ELBO between the posterior and the variational distribution $q$ is defined as
 	\begin{equation*}
 	\text{ELBO}(q) = \bbE_{q}[\log(p(\theta, z, x))] - \bbE_{q}[\log(q(\theta, z))]
 	\end{equation*}
