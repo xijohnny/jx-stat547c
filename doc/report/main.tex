@@ -6,17 +6,20 @@
 
 % Note: You will get an empty bibliography warning when compiling until you include a citation.
 
-\documentclass[10pt]{article}
+\documentclass[10pt, titlepage]{article}
 \input{header}
 \input{defs}
-
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % your title/author/date information go here
-\title{\LaTeX\ Template for STAT 547C Final Project} % replace with your title
-\author{Benjamin Bloem-Reddy} % replace with your name
+\title{STAT547 Final Project: A Variational Bernstein von--Mises type result} % replace with your title
+\author{Johnny Xi} % replace with your name
 \date{\today} % replace with your submission date
-
 \bibliography{../../ref/STAT_547C.bib} % add the title of your bibliography file
 
 % start of document
@@ -25,12 +28,13 @@
 \maketitle
 
 % background section
-\include{sections/background}
+\input{sections/background}
 
 % add your main body sections here
+\input{sections/body}
 
 % open questions section
-\include{sections/open-questions}
+\input{sections/open-questions}
 
 %%%% appendix
 \clearpage

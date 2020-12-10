@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.0 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,5 +16,432 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Bishop::2006}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{labelalpha}{Bis06}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{booktitle}{Pattern Recognition and Machine Learning}
+      \field{series}{Information Science and Statistics}
+      \field{year}{2006}
+      \field{pages}{466\bibrangedash 467}
+      \range{pages}{2}
+    \endentry
+    \entry{VIReview}{article}{}
+      \name{author}{3}{}{%
+        {{hash=108998f0d44d4dce8ccb93e4d78cd5c6}{%
+           family={Blei},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=9b4bd774638a5e11db087a94dc4950b1}{%
+           family={Kucukelbir},
+           familyi={K\bibinitperiod},
+           given={Alp},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2baf42315daa7e7288615fe2776de8e6}{%
+           family={McAuliffe},
+           familyi={M\bibinitperiod},
+           given={Jon\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{853d35e6ec8363e2400561dba8cb9aae}
+      \strng{fullhash}{853d35e6ec8363e2400561dba8cb9aae}
+      \strng{bibnamehash}{853d35e6ec8363e2400561dba8cb9aae}
+      \strng{authorbibnamehash}{853d35e6ec8363e2400561dba8cb9aae}
+      \strng{authornamehash}{853d35e6ec8363e2400561dba8cb9aae}
+      \strng{authorfullhash}{853d35e6ec8363e2400561dba8cb9aae}
+      \field{labelalpha}{BKM17}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{title}{Variational Inference: A Review for Statisticians}
+      \field{volume}{112}
+      \field{year}{2017}
+      \field{pages}{859\bibrangedash 877}
+      \range{pages}{19}
+    \endentry
+    \entry{Castillo::2013}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f8d83fff7dc782d4144dde795a167f8e}{%
+           family={Castillo},
+           familyi={C\bibinitperiod},
+           given={Ismael},
+           giveni={I\bibinitperiod}}}%
+        {{hash=b3aa37be0e7c5438321ea76f3576b00c}{%
+           family={Nickl},
+           familyi={N\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \strng{fullhash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \strng{bibnamehash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \strng{authorbibnamehash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \strng{authornamehash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \strng{authorfullhash}{6ea86ddb7b501e56e035a6f3bc820fbb}
+      \field{labelalpha}{CN13}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Statistics}
+      \field{title}{Nonparametric Bernstein--von Mises theorems in Gaussian white noise}
+      \field{volume}{41}
+      \field{year}{2013}
+      \field{pages}{1999\bibrangedash 2028}
+      \range{pages}{30}
+    \endentry
+    \entry{Castillo::2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f8d83fff7dc782d4144dde795a167f8e}{%
+           family={Castillo},
+           familyi={C\bibinitperiod},
+           given={Ismael},
+           giveni={I\bibinitperiod}}}%
+        {{hash=7315d1e9dd539ebd6b480576ae1255ad}{%
+           family={Rousseau},
+           familyi={R\bibinitperiod},
+           given={Judith},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a9726390c928aee5870cf3e84b9ec16}
+      \strng{fullhash}{1a9726390c928aee5870cf3e84b9ec16}
+      \strng{bibnamehash}{1a9726390c928aee5870cf3e84b9ec16}
+      \strng{authorbibnamehash}{1a9726390c928aee5870cf3e84b9ec16}
+      \strng{authornamehash}{1a9726390c928aee5870cf3e84b9ec16}
+      \strng{authorfullhash}{1a9726390c928aee5870cf3e84b9ec16}
+      \field{labelalpha}{CR15}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Statistics}
+      \field{title}{A Bernstein--von Mises theorem for smooth functionals in semiparametric models}
+      \field{volume}{43}
+      \field{year}{2015}
+      \field{pages}{2353\bibrangedash 2383}
+      \range{pages}{31}
+    \endentry
+    \entry{Doob::1949}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=a5a5cc96e45d308ed1d7346b9ac8f4d8}{%
+           family={Doob},
+           familyi={D\bibinitperiod},
+           given={Joseph\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \strng{fullhash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \strng{bibnamehash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \strng{authorbibnamehash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \strng{authornamehash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \strng{authorfullhash}{a5a5cc96e45d308ed1d7346b9ac8f4d8}
+      \field{labelalpha}{Doo49}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Actes du Colloque International Le Calcul des Probabilités et ses applications}
+      \field{title}{Application of The Theory of Martingales}
+      \field{year}{1949}
+    \endentry
+    \entry{GiordanoJMLR}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ebd86aa37012b71a6a4068c8e98b32fd}{%
+           family={Giordano},
+           familyi={G\bibinitperiod},
+           given={Ryan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4158a9146a2bcd94b39b138a41514f81}{%
+           family={Broderick},
+           familyi={B\bibinitperiod},
+           given={Tamara},
+           giveni={T\bibinitperiod}}}%
+        {{hash=8a36116840c7ee55901618c95fd08a58}{%
+           family={Jordan},
+           familyi={J\bibinitperiod},
+           given={Michael\bibnamedelima I.},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JMLR}%
+      }
+      \strng{namehash}{da62680a320740d8dc997afe0d84e6f5}
+      \strng{fullhash}{da62680a320740d8dc997afe0d84e6f5}
+      \strng{bibnamehash}{da62680a320740d8dc997afe0d84e6f5}
+      \strng{authorbibnamehash}{da62680a320740d8dc997afe0d84e6f5}
+      \strng{authornamehash}{da62680a320740d8dc997afe0d84e6f5}
+      \strng{authorfullhash}{da62680a320740d8dc997afe0d84e6f5}
+      \field{labelalpha}{GBJ18}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Mach. Learn. Res.}
+      \field{number}{1}
+      \field{title}{Covariances, Robustness and Variational Bayes}
+      \field{volume}{19}
+      \field{year}{2018}
+      \field{pages}{1981\bibrangedash 2029}
+      \range{pages}{49}
+    \endentry
+    \entry{kleijn2012}{article}{}
+      \name{author}{2}{}{%
+        {{hash=5ed4997ac9052161f97feb3b9fbee636}{%
+           family={Kleijn},
+           familyi={K\bibinitperiod},
+           given={B.J.K.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c0326d048e485bd0809a91501f2362a0}{%
+           family={Vaart},
+           familyi={V\bibinitperiod},
+           given={A.W.},
+           giveni={A\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {The Institute of Mathematical Statistics}%
+        {the Bernoulli Society}%
+      }
+      \strng{namehash}{98694073a31a06e53e0fae44bdc8e713}
+      \strng{fullhash}{98694073a31a06e53e0fae44bdc8e713}
+      \strng{bibnamehash}{98694073a31a06e53e0fae44bdc8e713}
+      \strng{authorbibnamehash}{98694073a31a06e53e0fae44bdc8e713}
+      \strng{authornamehash}{98694073a31a06e53e0fae44bdc8e713}
+      \strng{authorfullhash}{98694073a31a06e53e0fae44bdc8e713}
+      \field{labelalpha}{KV12}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electron. J. Statist.}
+      \field{title}{The Bernstein-Von-Mises theorem under misspecification}
+      \field{volume}{6}
+      \field{year}{2012}
+      \field{pages}{354\bibrangedash 381}
+      \range{pages}{28}
+    \endentry
+    \entry{renyi2016}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=400e4d5630f4e518634cc6e80b62b62f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yingzhen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=50bb1da31125197be3166f9bee1ed0ef}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={Richard\bibnamedelima E},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{caff7f4517c247a958bffaa01932768f}
+      \strng{fullhash}{caff7f4517c247a958bffaa01932768f}
+      \strng{bibnamehash}{caff7f4517c247a958bffaa01932768f}
+      \strng{authorbibnamehash}{caff7f4517c247a958bffaa01932768f}
+      \strng{authornamehash}{caff7f4517c247a958bffaa01932768f}
+      \strng{authorfullhash}{caff7f4517c247a958bffaa01932768f}
+      \field{labelalpha}{LT16}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems 29}
+      \field{title}{Rényi Divergence Variational Inference}
+      \field{year}{2016}
+      \field{pages}{1073\bibrangedash 1081}
+      \range{pages}{9}
+    \endentry
+    \entry{Schervish::1995}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=b52b71927a74e0d05c36bbdf8f306865}{%
+           family={Schervish},
+           familyi={S\bibinitperiod},
+           given={Mark\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag New York}%
+      }
+      \strng{namehash}{b52b71927a74e0d05c36bbdf8f306865}
+      \strng{fullhash}{b52b71927a74e0d05c36bbdf8f306865}
+      \strng{bibnamehash}{b52b71927a74e0d05c36bbdf8f306865}
+      \strng{authorbibnamehash}{b52b71927a74e0d05c36bbdf8f306865}
+      \strng{authornamehash}{b52b71927a74e0d05c36bbdf8f306865}
+      \strng{authorfullhash}{b52b71927a74e0d05c36bbdf8f306865}
+      \field{labelalpha}{Sch95}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{booktitle}{Theory of Statistics}
+      \field{series}{Springer Series in Statistics}
+      \field{year}{1995}
+      \field{pages}{1\bibrangedash 24}
+      \range{pages}{24}
+    \endentry
+    \entry{Asymptotics:2000}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=c0326d048e485bd0809a91501f2362a0}{%
+           family={Vaart},
+           familyi={V\bibinitperiod},
+           given={A.W.},
+           giveni={A\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{c0326d048e485bd0809a91501f2362a0}
+      \strng{fullhash}{c0326d048e485bd0809a91501f2362a0}
+      \strng{bibnamehash}{c0326d048e485bd0809a91501f2362a0}
+      \strng{authorbibnamehash}{c0326d048e485bd0809a91501f2362a0}
+      \strng{authornamehash}{c0326d048e485bd0809a91501f2362a0}
+      \strng{authorfullhash}{c0326d048e485bd0809a91501f2362a0}
+      \field{labelalpha}{Vaa00}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Asymptotic Statistics}
+      \field{series}{Cambridge Series in Statistical and Probablistic Mathematics}
+      \field{title}{Asymptotic Statistics}
+      \field{year}{2000}
+      \field{pages}{138\bibrangedash 152}
+      \range{pages}{15}
+    \endentry
+    \entry{f2020}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=857dbabbbd6f1682eb3cef8e75d5af76}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Neng},
+           giveni={N\bibinitperiod}}}%
+        {{hash=fcb131253c64ca833acdc1d711cce595}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Dapeng},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6816b45971a7290526789e1b21e9802d}{%
+           family={Hovakimyan},
+           familyi={H\bibinitperiod},
+           given={Naira},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{9edee80d4551e323c6738c60c84f825c}
+      \strng{fullhash}{9edee80d4551e323c6738c60c84f825c}
+      \strng{bibnamehash}{9edee80d4551e323c6738c60c84f825c}
+      \strng{authorbibnamehash}{9edee80d4551e323c6738c60c84f825c}
+      \strng{authornamehash}{9edee80d4551e323c6738c60c84f825c}
+      \strng{authorfullhash}{9edee80d4551e323c6738c60c84f825c}
+      \field{labelalpha}{WLH20}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv, to appear in NeurIPS 2020}
+      \field{title}{f-Divergence Variational Inference}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2009.13093
+      \endverb
+    \endentry
+    \entry{Wang::mis2019}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=b5179f4fd218803a34ae8dc7a90f2755}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yixin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=df034c01f40f9863f7986f0670e3f863}{%
+           family={Blei},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \strng{fullhash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \strng{bibnamehash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \strng{authorbibnamehash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \strng{authornamehash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \strng{authorfullhash}{8ed9edd4b034f754fe6d80df18d7b883}
+      \field{extraname}{1}
+      \field{labelalpha}{WB19}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems 32}
+      \field{title}{Variational Bayes under Model Misspecification}
+      \field{year}{2019}
+      \field{pages}{13357\bibrangedash 13367}
+      \range{pages}{11}
+    \endentry
+    \entry{Wang:2019:VBVM}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b5179f4fd218803a34ae8dc7a90f2755}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yixin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=108998f0d44d4dce8ccb93e4d78cd5c6}{%
+           family={Blei},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{c3d4ade29726f1a2a4480b1653636673}
+      \strng{fullhash}{c3d4ade29726f1a2a4480b1653636673}
+      \strng{bibnamehash}{c3d4ade29726f1a2a4480b1653636673}
+      \strng{authorbibnamehash}{c3d4ade29726f1a2a4480b1653636673}
+      \strng{authornamehash}{c3d4ade29726f1a2a4480b1653636673}
+      \strng{authorfullhash}{c3d4ade29726f1a2a4480b1653636673}
+      \field{extraname}{2}
+      \field{labelalpha}{WB19}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{number}{527}
+      \field{title}{Frequentist Consistency of Variational Bayes}
+      \field{volume}{114}
+      \field{year}{2019}
+      \field{pages}{1147\bibrangedash 1161}
+      \range{pages}{15}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

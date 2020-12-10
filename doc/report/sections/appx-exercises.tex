@@ -3,3 +3,92 @@
 % Exercises section
 
 \section{Exercises}
+
+\subsection{Exercise 1}
+
+Exercise 1 is a portion of the proof of Lemma 4 in \cite{Wang:2019:VBVM}. Recall the parameter space is $R^d$, and latent space is $R^n$. Let $\gamma_n$ be a $d \times d$ diagonal matrix with all entries $\gamma_{n, ii} \to 0$. Suppose the variational density for $\theta$ under the shifting and rescaling $\theta = \gamma_n^{-1}(\theta - \mu)$ can be expressed as
+$$
+q(\theta) = |det\gamma_n|^{-1}q_h(\gamma_n^{-1}(\theta-\mu))
+$$
+%
+for some $\mu \in \bbR^d$, and such that $\int q_h(h)dh = 0$. Suppose that $q_h$ has zero mean, i.e., $\int hq_h(h)dh = 0$. Now further suppose that $\int h^2 q_h(h)dh < \infty$, $\sup_{z,x}\|\log(p(z,x|\theta))''\| \leq Aq_h(\theta)^{-B}$ for positive constants $A$, $B$ and some induced p-norm $p \in [1, \infty]$. To reduce clutter, denote $q_{\theta}(\theta)$ and $q_z(z)$ simply as $q(\theta)$ and $q(z)$, they are identified by their arguments. Prove that the first term in equation \ref{KLlem4} satisfies
+\begin{gather*}
+\int d\theta q(\theta) \left(- \log q(\theta) + \log \left[ p(\theta) \exp \left[ \sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\theta)}{q_z(z)} \right)\right] \right] \right) \\
+\leq \int d\theta q(\theta)\log(p(\theta)) - \int d\theta q(\theta)\log q(\theta) +
+\sup_{Q^n} \int dz q(z) \log \frac{p(x,z|\mu)}{q(z)} +o(1)
+\end{gather*}
+where $o(1)$ refers to a term going to $0$ as $n \to \infty$. Note this essentially shows that the supremum in the negative KL term can be bounded by the supremum in the profiled ELBO term in the limit. The rest of the proof of lemma \ref{lem4} rests on showing a similar inequality for the profiled ELBO. 
+
+\paragraph{Solution:}
+\begin{gather*}
+\int d\theta q(\theta) \left(- \log q(\theta) + \log \left[ p(\theta) \exp \left[ \sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\theta)}{q_z(z)} \right)\right] \right] \right) = \\
+\int d\theta q(\theta) \log p(\theta) - \int d\theta q(\theta)\log q(\theta) + \int d\theta q(\theta) \left[ \sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\theta)}{q_z(z)} \right)\right] 
+\end{gather*}
+Now, we simply require to show the inequality
+$$ 
+\int d\theta q(\theta) \left[ \sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\theta)}{q_z(z)} \right)\right]  \leq \sup_{Q^n} \int dz q(z) \log \frac{p(x,z|\mu)}{q(z)} +o(1)
+$$
+%
+We manipulate the left side by considering the Taylor expansion in $\theta$ about $\mu$, with a mean value $\theta^{\dagger}$ remainder
+\begin{gather*}
+\int d\theta q(\theta) \left[ \sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\mu)}{q_(z)} \right)\right] + (\theta - \mu)\left[\sup_{Q^n} \int dz q(z)\log\left( \frac{p(x,z|\mu)}{q(z)} \right) \right]' \\
++ \frac{1}{2}(\theta - \mu)^T\left(\sup_{Q^n} \int dz q(z)\log \left( \frac{p(x,z|\theta^{\dagger})}{q(z)} \right)''(\theta - \mu) \right]
+\end{gather*}
+The first term is free of $\theta$ and may come out of the integral, leaving $\int d\theta q(\theta) = 1$. The second term is equal to 0 by subbing in $\tilde{\theta} = \gamma_n^{-1}(\theta - \mu)$: 
+\begin{gather*}
+\int d\theta q(\theta) \left((\theta - \mu)\left[\sup_{Q^n} \int dz q(z)\log\left( \frac{p(x,z|\mu)}{q(z)} \right) \right]' \right) \\
+= \int d\theta |det \gamma_n|^{-1} q_h(\tilde{\theta}) \left( \gamma(\tilde{\theta}) \left[\sup_{Q^n} \int dz q(z)\log\left( \frac{p(x,z|\mu)}{q(z)} \right) \right]' \right) = 0
+\end{gather*}
+since the inner portion under the $\sup$ is free of $\theta$, and the mean of $q_h$ is assumed to be 0. This leaves the final term. Let $\|\cdot\|$ represent some vector p-norm $p \in [1, \infty]$ and the associated induced matrix norm. Then,
+\begin{gather*}
+\int d\theta q(\theta) \left[ \frac{1}{2}(\theta - \mu)^T\left(\sup_{Q^n} \int dz q(z)\log \left( \frac{p(x,z|\theta^{\dagger})}{q(z)} \right)\right)''(\theta - \mu) \right] \\
+\leq \int d\theta \frac{1}{2}q(\theta) \left[ \|\theta-\mu\|^2  \sup_{x,z} \left\Vert \sup_{Q^n} \int dz q(z)\log \left( \frac{p(x,z|\theta^{\dagger})}{q(z)} \right)''\right\Vert \right] \\
+\leq A \int d\theta q(\theta) \|\theta - \mu\|^2 q_h(\theta)^{-B}
+\end{gather*}
+by a basic inequality for quadratic forms and the assumption. Proceeding by the same substitution $\tilde{\theta}$, 
+\begin{gather*}
+A \int d\theta q(\theta) \|\theta - \mu\|^2 q_h(\theta)^{-B} \\
+= C \int q_h(\tilde{\theta}) \|\gamma_n \tilde{\theta} \|^2 q_h(\mu + \gamma_n\tilde{\theta})^{-B} \\
+\leq C' \max_{i} (\gamma^2_{n, ii})
+\end{gather*}
+Since we assumed that $\int h^2 q_h(h)dh < \infty$. Now, since $\gamma_{n, ii} \to 0$ for all $i$, we have that the third term also goes to $0$, i.e., it is equal to $o(1)$. To recap, we showed that the first term of the expansion is free of $\theta$ and hence equal to just
+\begin{gather*}
+\sup_{Q^n} \int dz q(z) \log\left( \frac{p(x,z|\mu)}{q_(z)} \right) 
+\end{gather*}
+while the second term was equal to 0, and the third term is dominated by a term that is $o(1)$. This shows the desired inequality. 
+
+\subsection{Exercise 2}
+
+This exercise was conceived without external references. Recall from elementary probability that the joint density of a Bayesian model with data $x$, global latents $\theta$ and local latents $z$ can be written as:
+$$
+p(x,z,\theta) = p(x|z, \theta) p(z|\theta)p(\theta)
+$$
+%
+In this case, we can write the density for the posterior distribution $P_{\Theta, Z|X}$ succinctly as 
+$$
+p(\theta, z|x) \propto p(x|z, \theta) p(z|\theta)p(\theta)
+$$
+%
+by integrating out the local latents $z$, we have 
+$$
+p(\theta|x) \propto p(x|z, \theta) p(\theta)
+$$
+%
+Show that the KL divergence between this posterior and the VB ideal $KL(p(\theta|x) \| \pi^*(\theta|x))$ is dependent on the expected (under $p(\theta|x)$) quality of the expected local variational approximation ($\log q_z^{\dagger}$) to $\log p(z|x,\theta)$ (i.e., $\bbE_q^{\dagger}[\log q_z^{\dagger}(z)] - \log p(z|x,\theta)$). 
+
+\paragraph{Note:} This exercise merely wants to show that the quality of the local approximation impacts the KL divergence, not that it is the only term.
+
+\paragraph{Solution}
+
+Note that $p(x|z,\theta) = \frac{p(x,z | \theta)}{p(z|x, \theta)}$. Also note that the denominators in the posterior and VB ideal are constants in $\theta$. Denote by expectation over $\theta$ with respect to the posterior $P_{\Theta|x}$ as $E_p[\cdot]$. Then, the KL divergence can be written as:
+\begin{gather*}
+KL(p(\theta|x) \| \pi^*(\theta|x)) = \bbE_p[\log (p(x|z, \theta) p(\theta)) - \log(p(\theta)\exp(M_n(\theta; x)))] + C \\
+= \bbE_p[\log p(x|z, \theta) - M_n(\theta ; x)] + C \\
+= \bbE_p[\log p(x,z| \theta) - \log p(z|x,\theta) - \max_{Q^n} \bbE_{q(z)}[\log p(x,z|\theta) - \log q_z(z)]] + C
+\end{gather*}
+Now, recall that we denote the $\arg \max$ density in the inner expectation $q_z^{\dagger}$. Then,
+\begin{gather*}
+ KL(p(\theta|x) \| \pi^*(\theta|x)) = \bbE_p[\log p(x,z| \theta) - \log p(z|x,\theta) - \bbE_{q(z)}[\log p(x,z|\theta) - \log q^{\dagger}_z(z)]] + C \\
+ = \bbE_p[(\log p(x,z|\theta) - \bbE_q^{\dagger}[\log p(x,z|\theta)])] + \bbE_p[\bbE_q^{\dagger}[\log q_z^{\dagger}(z)] - \log p(z|x,\theta)] + C 
+\end{gather*}
+where the second term measures the quality of the approximation. 

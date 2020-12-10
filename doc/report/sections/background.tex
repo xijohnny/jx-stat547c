@@ -4,6 +4,119 @@
 
 \section{Background}
 
+\subsection{Bayesian Inference}
+
+\paragraph{} We begin with a brief tour of Bayesian inference which provides the setting for the rest of the report. I borrow heavily from the first chapter of \cite{Schervish::1995} for this sub-section. Let $(\Omega, \calH, \bbP)$ be the background probability space, and let $(F, \calF)$ (the parameter space) and $(E, \calE)$ (the sample space) be standard measurable spaces. Then, the parameter $\Theta$ and data $X$ are random variables taking values in $(F, \calF)$ and $(E, \calE)$ respectively, and regular versions of their conditional distributions given each other exist. The statistical model at hand is then defined by the family of conditional distributions of $X$ given $\Theta(\omega) = \theta$, seen as probability measures over $(E, \calE)$, and denoted $P_{\Theta} = \{ P_{X|\theta} ; \theta \in F\}$. For this report, we assume that $(F, \calF) = (\bbR^d, \bfB(\bbR^d))$ and all densities defined here are with respect to the Lebesgue measure for simplicity. Now suppose a prior distribution $\mu_0$ with density $p$ is specified for $\Theta$, and $X$ has conditional and marginal densities with respect to a dominating measure $\nu$. Then, Bayes' Theorem (\cite{Schervish::1995}, Theorem 1.31) gives the conditional density of $\Theta$ given $X$ with respect to $\mu_0$:
+\begin{equation}
+\label{posterior}
+\frac{d\mu_{\Theta|X}}{d\mu_0} = \frac{p_{X|\Theta}(x|\theta)p(\theta)}{\int_{\calF} p_{X|\theta}(x|\theta)p(\theta)(d\theta)}
+\end{equation}
+%
+where $p_{X|\Theta}(x|\theta)$ is the conditional density at $\theta = \Theta(\omega)$ and the denominator is the marginal density of $X$. The distribution $\mu_{\Theta|X}$ is the main object of interest in Bayesian inference, and is known as the posterior distribution of the statistical parameters. The more practical setting concerns a random sample of size $n$ from the distribution $P_{X|\Theta}$, in which the posterior density has the form
+\begin{equation*}
+\frac{\prod^n p_{X|\Theta}(x_i|\theta)p(\theta)}{\int_{\calF} \prod^np_{X|\theta}(x_i|\theta)p(\theta)(d\theta)}
+\end{equation*}
+We typically refer to the conditional density $\ell(\theta; x) = \prod^n p_{X|\Theta}(x_i|\theta)$ as the likelihood. Denote the corresponding posterior distribution for $n$ samples as $P^n_{\Theta|X_n}$.
+ 
+\subsection{Bayesian Asymptotics}
+
+\paragraph{} The previous setting philosophically differs from frequentist statistics, where the parameters are assumed to have an atomic \textit{true} value $\theta_0$. However, Bayesian procedures are still understood in the domain of frequentist estimation, and a rich literature exists on their ``frequentist'' asymptotic properties. In the main reference for this sub-section \cite{Asymptotics:2000}, van der Vaart simply states that ``Bayes estimators are studied from a frequentist perspective''. A remarkably general result is sometimes referred to as Doob's Theorem \cite{Doob::1949}, which states that posterior contracts to a true parameter value $\mu_0$-almost surely. Roughly speaking, if the true value is not only contained in null sets under the prior, then the posterior is consistent in the frequentist sense. Although this is a theoretically strong result, its practical application is limited as the null set under the prior can be large, particularly in the case of nonparametric models. A weaker, but more applicable result is known as the Bernstein von--Mises theorem (BvM). We will first discuss the assumptions of the theorem. 
 
 
+\begin{definition}[Differentiable in Quadratic Mean (DQM)]
+	Let $p_{\theta_0}$ denote the density with respect to $\nu$ of $P_{\theta_0}$. The model is said to be differentiable in quadratic mean at $\theta_0$ if there exists a measurable function $l'_{\theta_0}$ such that
+	\begin{equation}
+	\int \left(\sqrt{p_{\theta_0 + h}} - \sqrt{p_{\theta_0}} - \frac{1}{2}h^T l'_{\theta_0} \sqrt{p_{\theta_0}} \right)^2 d\nu = o(|h|^2)
+	\end{equation}
+	as $h \to 0$. 
+\end{definition}
+
+\begin{proposition}[Theorem 7.2, \cite{Asymptotics:2000}]
+	\label{lan}
+	Suppose the model $P_{\Theta}$ is DQM at $\theta_0$ and that $\Theta$ is an open subset of $\bbR^k$. Then, $E_{\theta_0}[l'_{\theta_0}] = 0$ and the Fisher information $E_{\theta_0}[l'_{\theta_0}(l'_{\theta_0})^{T}]$ exists. Furthermore, for any sequence $h_n \to h$, as $n \to \infty$,
+	\begin{equation}
+	\sum_{i=1}^n \log\left( \frac{p_{\theta_0 + h_n/\sqrt{n}}}{p_{\theta_0}} (x_i) \right) = \frac{1}{\sqrt{n}}\sum_{i=1}^n h^T l'_{\theta_0}(x_i) - \frac{1}{2}h^TI_{\theta_0}h + o_{P_{\theta_0}}(1)
+	\end{equation}
+\end{proposition}
+
+\begin{itemize}
+	\item (A1) (Prior Mass): The prior distribution $\mu_0$ has a continuous positive density in a neighbourhood of $\theta_0$.
+	\item (A2) (Consistent Testability) Let $P^n_{\theta0}$ be the conditional distribution of the data $X_1, \dots X_n$ given $\theta_0$. For every $\epsilon > 0$, there exists a sequence of measurable functions $\phi_n : E \to [0,1]$ (known as tests) such that 
+	\begin{equation}
+	P^n_{\theta_0} \phi_n \to 0 \quad \quad \sup_{|\theta - \theta_0|\geq \epsilon} P^n_{\theta}(1-\phi_n) \to 0
+	\end{equation}
+	\item (A3) (Local Asymptotic Normality): The statement in proposition \ref{lan} is known as local asymptotic normality (LAN). It roughly states that the log likelihood ratio converges under the true model to a quadratic expression, suggesting its normality. For the following theorem, also suppose that the Fisher information is nonsingular.
+\end{itemize}
+
+	Heuristically, (A1) is necessary for the result as the posterior has no hope of contracting near a region of zero density under the prior. (A2) essentially states that there is a sequence of tests to separate a null hypothesis $\theta = \theta_0$ and its global alternative. In practice, this is a mild condition and is satisfied for example if the parameter space is compact and the model is identifiable and continuous in the parameters. (A3) is necessary for establishing the normality result that is implied by the BvM, and is essentially stating that the likelihood ratio is locally dominated by the quadratic terms of its Taylor expansion. We now state the result. 
+
+\begin{theorem}[Bernstein von--Mises Theorem, Theorem 10.1 \cite{Asymptotics:2000}]
+	\label{bvm}
+	Suppose (A1) -- (A3) are satisfied. Let
+	\begin{equation}
+		\Delta_{n, \theta_0} = \frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1} l'_{\theta_0}(x_i)
+	\end{equation}
+	be a sequence of random vectors. Then, the sequence of posterior distributions satisfy 
+	\begin{equation*}
+	\|P^n_{\sqrt{n}(\theta - \theta_0)} - N(\Delta_{n, \theta_0}, I^{-1}_{\theta_0})\|_{TV} \to 0
+	\end{equation*}
+	where the total variation norm of a distribution $\mu \in \calF$ is equal to $\sup_{B\in \calF} \mu(B)$. 
+\end{theorem} 
+\paragraph{} The proof can be found in \cite{Asymptotics:2000}. Theorem \ref{bvm} and its extensions are considered to be the main result in the intersection of asymptotic statistics and Bayesian inference. The restriction that the prior density need only be positive and continuous at $\theta_0$ is much weaker than that in Doob's theorem. The statement however is not necessarily straight forward. Since the posterior is a conditional distribution, it is really a random measure. The target Normal is also a random measure -- it is centered at $\Delta_{n, \theta_0}$, which is a function of the random data $x_i$. However, the result is still useful in the sense that a point estimator derived from minimizing a suitable expected loss function under the posterior converges to the minimizer of the same loss function under what is almost a centered normal. Most specifically, one can expect that the mean of the scaled and centered posterior converges to 0. For more details, see Theorem 10.8 in \cite{Asymptotics:2000}.  
+ 
+\subsection{Variational Inference}
+
+\paragraph{} Modern Bayesian modelling often assumes the existence of \textit{local} latent variabes $z_i$, for each data observation. These can be considered additional dimensions of $\Theta$ in the context above, so that if the model has $d$ dimensions, then $\dim(\Theta) = n+d$. To avoid carrying around extra notation, denote the model parameters as $\theta$, and we refer to them as global latent variables. Note that only the global latent variables carry prior distributions. The posterior density $p(\theta,z |x)$ is analytically intractable for many useful models. A widely popular scheme to perform Bayesian inference involves drawing approximate samples from the posterior, and performing Monte carlo analysis. These strategies typically guarantee that samples resemble the posterior asympotically, but this rate of convergence can be slow for models with many parameters. Variational inference (VI) (or variational Bayes (VB)) is an alternative strategy for explicit approximate inference. 
+
+\paragraph{} The idea is that instead of attempting to find the true posterior, a convenient variational family of distributions $Q$ is defined, and the best approximator $q^* \in Q$ is taken as a surrogate to the posterior $p$. The focus here is on a special case of VB, where $Q$ is restricted to have a factorizable density and optimality is defined in terms of the Kullback--Leibler (KL) divergence. This is often referred to as mean-field variational Bayes (MVFB) and $Q$ is called the mean-field family. Specifically, let $\text{KL}(\cdot || \cdot)$ be the KL divergence between two distributions, expressed in terms of their densities. Then,
+\begin{equation}
+Q^{n+d} = \left[ q; q(\theta, z) = \prod_{i=1}^d q_{\theta_i}(\theta_i) \prod_{i=i}^n q_{z_j}(z_j)  \right]
+\end{equation}
+\begin{equation}
+\label{vbapprox}
+q^*(\theta, z) = \arg \min_{Q^{n+d}} \text{KL}(q(\theta, z) \| p(\theta, z |x))
+\end{equation}
+Note that under this mean field family, the variational distribution may be factorized as
+\begin{equation}
+\label{fact}
+q(\theta,z) = q_{\theta}(\theta)q_{z}(z)
+\end{equation}
+%
+where each component does not depend on the other parameter. Often, the local latents are considered to be nuisance parameters, and we call the optimal $q^*_{\theta}$ the VB posterior. The target is then the marginal posterior $p(\theta|x) = \int dz p(\theta, z |x)$. Denote $Q^d$ and $Q^n$ to be the variational families in which $q_{\theta}$ and $q_z$ are defined, respectively. Note an immediate limitation in the expressiveness of the mean-field family. The factorizable densities implies that the marginal distributions are independent. This is not the case for many distributions of interest, and hence the mean-field approximation can be very poor if dependencies across parameters are strong. 
+
+\paragraph{} \textbf{The key topic of the report is whether a BvM-type phenomenon exists for the global variables $\theta$ on the variational approximation $q^*$ to the posterior. The literature of BvM adaptations is rich, including under model misspecification (\cite{kleijn2012}), so it is not unreasonable to suggest that some element of BvM also survives the VB approximation. Indeed, \cite{Wang:2019:VBVM} answer this in the positive. An exposition of this work, and in particular Theorem 5 represents the body of this report.} 
+
+\subsubsection{Ideal VB}
+To proceed with the exposition, we must define and translate some ideas to the VI framework. We begin with the frequentist view -- define the variational log likelihood:
+\begin{equation}
+\label{vll}
+M_n(\theta; x) = \max_{Q^n} \bbE_{q_z}[\log p(x,z|\theta) - \log(q_z(z))]
+\end{equation}
+%
+in contrast to equation \ref{vbapprox}, this is a function of $\theta$ (viewed as a constant), and the optimization on $q$ is only over the local variables $z$. Note that in relation with the usual hierarchical log-likelihood, $q(z)$ plays the role of approximating the conditional density $p(z|\theta)$. In the special case that there are not local latent variables $z_i$, equation \ref{vll} corresponds exactly to the usual log likelihood $\log p(x|\theta)$. The optimal variational distribution $q_z^{\dagger} \in Q^n$ for each $\theta$ is said to solve the local variational inference problem. Now, the variational frequentist estimator is defined as
+\begin{equation}
+\hat{\theta_n} = \arg \max_{\theta} M_n(\theta; x)
+\end{equation}
+Now, suppose a Bayesian model is fit to a random sample $x$, with prior density $p(\theta)$ and posterior density $p(\theta, z |x)$. Define the VB ideal density to be
+\begin{equation}
+\label{vbideal}
+\pi^*(\theta|x) = \frac{p(\theta)\exp(M_n(\theta; x))}{\int p(\theta)\exp(M_n(\theta;x))d\theta}
+\end{equation}
+%
+Note that this is a highly complicated expression that is defined only for theoretical purposes, owing to the inner optimization for each $\theta$. As mentioned, with no latents $z_i$, the variational log-likelihood reduces to the usual log likelihood and hence equation \ref{vbideal} is the exact posterior. Otherwise, it involves the variational approximation of the conditional density $p(z|x, \theta)$. This suggests that the VB ideal is in some sense between the exact posterior, from which it differs by the error in $q_z$, and the VB posterior, from which is it differs by the error in $q_\theta$. This is explored in slightly more depth in exercise A.2. 
+
+\subsubsection{Evidence Lower Bound}
+
+In most practical settings, KL optimization requires iterative procedures and hence the posterior density must be evaluated at each iteration. This is clearly not feasible in the cases where VI would be useful, so instead an alternative objective is defined. 
+\begin{definition}[Evidence Lower Bound (ELBO), \cite{VIReview}, section 2.2]
+	In the notation above, the ELBO between the posterior and the variational distribution is defined as
+	\begin{equation*}
+	\text{ELBO}(q) = \bbE_{q}[\log(p(\theta, z, x))] - \bbE_{q}[\log(q(\theta, z))]
+	\end{equation*}
+\end{definition}
+Note the first term in the ELBO is the joint density, which side-steps the usual difficulty of computing the marginal distribution $p(x)$ (the denominator of equation \ref{posterior}). The ELBO satisfies the following equation
+\begin{equation}
+ELBO(q) = - \text{KL}(q(\theta, z) \| p(\theta, z |x)) + \log p(x)
+\end{equation}
+Since the marginal distribution does not depend on $q$, maximizing the ELBO over the variational family solves an equivalent problem to minimizing the KL divergence. This is the alternative optimization used most commonly in practice. 
 % ...
