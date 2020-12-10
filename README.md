@@ -1,5 +1,6 @@
-# stat547c-project-template
-Project directory and LaTeX template for UBC STAT 547C Final Project reports
+# STAT547 Project Directory: Johnny Xi
+
+Below are the instructions from the project outline. I have just one figure (saved in `doc/report/graphics`), and no code. All of my deliverables are essentially in the `doc/report` subdirectory. 
 
 ## Instructions for use:
 1. Click the [Use this temnplate](https://github.com/ben-br/stat-547c-template/generate) button above.
